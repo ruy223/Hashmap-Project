@@ -117,7 +117,8 @@ class HashMap:
 
     def resize_table(self, new_capacity: int) -> None:
         """
-        TODO: Write this implementation
+        Changes capacity of the table.
+        If new_capacity is less than 1, it does nothing.
         """
         pass
 
@@ -165,9 +166,12 @@ class HashMap:
 
     def clear(self) -> None:
         """
-        TODO: Write this implementation
+        Clears the hash table
         """
-        pass
+        self._size = 0
+        self._buckets = DynamicArray()
+        for i in range(self._capacity):
+            self._buckets.append(LinkedList())
 
 
 def find_mode(da: DynamicArray) -> tuple[DynamicArray, int]:
