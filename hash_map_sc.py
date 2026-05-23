@@ -94,11 +94,28 @@ class HashMap:
 
     def put(self, key: str, value: object) -> None:
         """
-        TODO: Write this implementation
+        Updates a key/value pair in the hash map.
+        If the key is already present in the hash map,
+        the value will be replaced with the new value.
         """
-        pass
+        # check load factor
+        if self.table_load() >= 1.0:
+            self.resize_table(self._capacity * 2)
 
-    def resize_table(self, new_capacity: int) -> None:
+        # Calculate index
+        index = self._hash_function(key) % self._capacity
+        temp = self._buckets.get_at_index(index)
+        returned_node = temp.contains(key)
+
+        # Check if key already exist
+        if returned_node:
+            returned_node.value = value
+        else:
+            temp.insert(key, value)
+            self._size += 1
+
+
+def resize_table(self, new_capacity: int) -> None:
         """
         TODO: Write this implementation
         """

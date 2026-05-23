@@ -8,6 +8,7 @@
 # (quadratic probing, tombstone deletion, iterator protocol). All operations
 # target O(1) average-case complexity. No built-in Python data structures used.
 # HashMap Implementation
+from operator import index
 
 from a6_include import (DynamicArray, HashEntry,
                         hash_function_1, hash_function_2)
@@ -91,9 +92,15 @@ class HashMap:
 
     def put(self, key: str, value: object) -> None:
         """
-        TODO: Write this implementation
+        Updates a key/value pair in the hash map.
+        If the key is already present in the hash map,
+        the value will be replaced with the new value.
         """
-        pass
+        # Calculate index
+        index = self._hash_function(key) % self._capacity
+
+        # Check if key already exist
+
 
     def resize_table(self, new_capacity: int) -> None:
         """
