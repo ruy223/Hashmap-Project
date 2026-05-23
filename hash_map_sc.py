@@ -130,9 +130,14 @@ class HashMap:
 
     def empty_buckets(self) -> int:
         """
-        TODO: Write this implementation
+        Return number of empty buckets in the hash table
         """
-        pass
+        counter = 0
+        for i in range(self._capacity):
+            temp = self._buckets.get_at_index(i)
+            if temp.length() == 0:
+                counter += 1
+        return counter
 
     def get(self, key: str) -> object:
         """
