@@ -115,7 +115,7 @@ class HashMap:
             self._size += 1
 
 
-def resize_table(self, new_capacity: int) -> None:
+    def resize_table(self, new_capacity: int) -> None:
         """
         TODO: Write this implementation
         """
