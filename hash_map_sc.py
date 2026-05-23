@@ -1,9 +1,13 @@
-# Name:
-# OSU Email:
+# Name: Zachary Quinn Fields
+# OSU Email: fieldsz@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: 6
+# Due Date: 01/06/2026
+# Description: Two HashMap variants built from scratch: Separate Chaining
+# (linked list collision resolution, O(N) find_mode()) and Open Addressing
+# (quadratic probing, tombstone deletion, iterator protocol). All operations
+# target O(1) average-case complexity. No built-in Python data structures used.
+# HashMap Implementation
 
 
 from a6_include import (DynamicArray, LinkedList,
