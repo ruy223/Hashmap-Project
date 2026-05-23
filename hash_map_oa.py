@@ -103,9 +103,10 @@ class HashMap:
 
     def table_load(self) -> float:
         """
-        TODO: Write this implementation
+        Returns the current hash table load factor
         """
-        pass
+        table_load = self._size / self._capacity
+        return table_load
 
     def empty_buckets(self) -> int:
         """
