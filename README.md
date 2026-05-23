@@ -1,4 +1,4 @@
-Hashmap-Project
+# Hashmap-Project
 Two HashMap variants built from scratch: Separate Chaining (linked list collision resolution, O(N) find_mode()) and Open Addressing (quadratic probing, tombstone deletion, iterator protocol). All operations target O(1) average-case complexity. No built-in Python data structures used. HashMap Implementation
 
 # Overview
@@ -14,7 +14,11 @@ Separate Chaining only: FunctionDescriptionfind_mode(da)Return the most frequent
 Table capacity is always maintained as a prime number All operations target O(1) average-case time complexity No built-in Python data structures (dict, set, etc.) are used Backed by custom DynamicArray, LinkedList, and HashEntry classes from a6_include.py
 
 # Files
-FileDescriptionhash_map_sc.pySeparate chaining HashMaphash_map_oa.pyOpen addressing HashMapa6_include.pySupporting data structures and hash functions Usage pythonfrom hash_map_sc import HashMap, find_mode from hash_map_oa import HashMap as HashMapOA from a6_include import DynamicArray, hash_function_1, hash_function_2
+FileDescriptionhash_map_sc.py
+Separate chaining HashMaphash_map_oa.py
+Open addressing HashMapa6_include.py
+
+Supporting data structures and hash functions Usage pythonfrom hash_map_sc import HashMap, find_mode from hash_map_oa import HashMap as HashMapOA from a6_include import DynamicArray, hash_function_1, hash_function_2
 
 Separate chaining
 m = HashMap(53, hash_function_1) m.put("name", "Alice") print(m.get("name")) # Alice print(m.contains_key("age")) # False
