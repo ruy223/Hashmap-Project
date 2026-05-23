@@ -142,13 +142,25 @@ class HashMap:
 
     def get(self, key: str) -> object:
         """
-        TODO: Write this implementation
+        Returns value associated with given key.
+        If the key is not present in the hash map,
+        None is returned.
         """
-        pass
+        # Calculate index
+        index = self._hash_function(key) % self._capacity
+        temp = self._buckets.get_at_index(index)
+        returned_node = temp.contains(key)
+
+        # Check if key already exist
+        if returned_node:
+            return returned_node.value
+        else:
+            return None
 
     def contains_key(self, key: str) -> bool:
         """
-        TODO: Write this implementation
+        Returns True if the given key is present in the hash map.
+        Otherwise, it returns False.
         """
         pass
 
