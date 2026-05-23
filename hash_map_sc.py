@@ -162,7 +162,16 @@ class HashMap:
         Returns True if the given key is present in the hash map.
         Otherwise, it returns False.
         """
-        pass
+        # Calculate index
+        index = self._hash_function(key) % self._capacity
+        temp = self._buckets.get_at_index(index)
+        returned_node = temp.contains(key)
+
+        # Check if key already exist
+        if returned_node:
+            return True
+        else:
+            return False
 
     def remove(self, key: str) -> None:
         """
