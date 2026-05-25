@@ -181,9 +181,17 @@ class HashMap:
 
     def get_keys_and_values(self) -> DynamicArray:
         """
-        TODO: Write this implementation
+        Returns a dynamic array with keys and values pairs.
         """
-        pass
+        # Create empty DA to store results
+        new_array = DynamicArray()
+
+        # Loop through every bucket
+        for i in range(self._capacity):
+            temp = self._buckets.get_at_index(i)
+            for node in temp:
+                new_array.append((node.key, node.value))
+        return new_array
 
     def clear(self) -> None:
         """
