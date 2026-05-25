@@ -120,7 +120,17 @@ class HashMap:
         Changes capacity of the table.
         If new_capacity is less than 1, it does nothing.
         """
-        pass
+        # Check if new_capacity is less than 1
+        if new_capacity < 1:
+            return
+
+        # Check if number is prime, change if not
+        if not self._is_prime(new_capacity):
+            new_capacity = self._next_prime(new_capacity)
+
+        # Save all pairs
+        saved_pairs = self.get_keys_and_values()
+
 
     def table_load(self) -> float:
         """
