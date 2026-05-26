@@ -201,7 +201,13 @@ class HashMap:
         If the key is not present in the hash map,
         the method does nothing.
         """
-        pass
+        # Calculate index, call remove
+        index = self._hash_function(key) % self._capacity
+        temp = self._buckets.get_at_index(index)
+        result = temp.remove(key)
+
+        # Check if temp.remove(key) returns true
+        if result == True:
 
     def get_keys_and_values(self) -> DynamicArray:
         """
