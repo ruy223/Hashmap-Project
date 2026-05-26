@@ -193,7 +193,7 @@ class HashMap:
         if returned_node:
             return True
         else:
-            return False #
+            return False
 
     def remove(self, key: str) -> None:
         """
