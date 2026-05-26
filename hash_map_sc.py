@@ -197,7 +197,9 @@ class HashMap:
 
     def remove(self, key: str) -> None:
         """
-        TODO: Write this implementation
+        Removes the given key from the hash map.
+        If the key is not present in the hash map,
+        the method does nothing.
         """
         pass
 
