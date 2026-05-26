@@ -207,7 +207,8 @@ class HashMap:
         result = temp.remove(key)
 
         # Check if temp.remove(key) returns true
-        if result == True:
+        if result is True:
+            self._size -= 1
 
     def get_keys_and_values(self) -> DynamicArray:
         """
