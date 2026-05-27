@@ -123,9 +123,31 @@ class HashMap:
 
     def resize_table(self, new_capacity: int) -> None:
         """
-        TODO: Write this implementation
+        Changes capacity of the table.
+        If new_capacity is less than the number of elements in the
+        hash map, it does nothing.
         """
-        pass
+        # check new_capacity
+        if new_capacity < self._size:
+            return
+        # Check if number is prime, change if not
+        if not self._is_prime(new_capacity):
+            new_capacity = self._next_prime(new_capacity)
+
+        # Save all pairs
+        saved_pairs = self.get_keys_and_values()
+
+        # Make a new table
+        self._size = 0
+        self._buckets = DynamicArray()
+        self._capacity = new_capacity
+        for i in range(new_capacity):
+            self._buckets.append(None)
+
+        # Add saved pairs to new table
+        for i in range(saved_pairs.length()):
+            temp = saved_pairs.get_at_index(i)
+            self.put(temp[0], temp[1])
 
     def table_load(self) -> float:
         """
