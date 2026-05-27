@@ -96,10 +96,29 @@ class HashMap:
         If the key is already present in the hash map,
         the value will be replaced with the new value.
         """
-        # Calculate index
-        index = self._hash_function(key) % self._capacity
+        # check load factor
+        if self.table_load() >= 0.5:
+            self.resize_table(self._capacity * 2)
 
-        # Check if key already exist
+        # Quadratic probing formula
+        initial_index = self._hash_function(key) % self._capacity
+
+        for i in range(self._buckets.length()):
+            index = (initial_index + i ** 2) % self._capacity
+            if self._buckets.get_at_index(index) is None:
+                self._buckets.set_at_index(index, HashEntry(key, value))
+                self._size += 1
+                break
+            else:
+                entry = self._buckets.get_at_index(index)
+                if entry.key == key and not entry.is_tombstone:
+                    self._buckets.set_at_index(index, HashEntry(key, value))
+                    break
+                 elif entry.is_tombstone:
+                     self._buckets.set_at_index(index, HashEntry(key, value))
+                     self._size += 1
+                     break
+
 
 
     def resize_table(self, new_capacity: int) -> None:
