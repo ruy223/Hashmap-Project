@@ -114,10 +114,10 @@ class HashMap:
                 if entry.key == key and not entry.is_tombstone:
                     self._buckets.set_at_index(index, HashEntry(key, value))
                     break
-                 elif entry.is_tombstone:
-                     self._buckets.set_at_index(index, HashEntry(key, value))
-                     self._size += 1
-                     break
+                elif entry.is_tombstone:
+                    self._buckets.set_at_index(index, HashEntry(key, value))
+                    self._size += 1
+                    break
 
 
 
