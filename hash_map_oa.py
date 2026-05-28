@@ -202,9 +202,12 @@ class HashMap:
 
     def clear(self) -> None:
         """
-        TODO: Write this implementation
+        Clears the hash table
         """
-        pass
+        self._size = 0
+        self._buckets = DynamicArray()
+        for i in range(self._capacity):
+            self._buckets.append(None)
 
     def __iter__(self):
         """
