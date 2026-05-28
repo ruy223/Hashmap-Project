@@ -168,17 +168,45 @@ class HashMap:
 
     def get(self, key: str) -> object:
         """
-        TODO: Write this implementation
+        Returns value associated with given key.
+        If key is not present in the hash map,
+        None is returned.
         """
-        pass
+        # Quadratic probing formula
+        initial_index = self._hash_function(key) % self._capacity
+
+        # Loop through with quadratic probing
+        for i in range(self._capacity):
+            index = (initial_index + i ** 2) % self._capacity
+            entry = self._buckets.get_at_index(index)
+
+        # Check if key already exist
+            if entry is None:
+                return None
+            elif not entry.is_tombstone and entry.key == key:
+                return entry.value
 
     def contains_key(self, key: str) -> bool:
         """
-        TODO: Write this implementation
+        return True if key is present in the hash map,
+        False otherwise.
         """
-        pass
+        # Quadratic probing formula
+        initial_index = self._hash_function(key) % self._capacity
 
-    def remove(self, key: str) -> None:
+        # Loop through with quadratic probing
+        for i in range(self._capacity):
+            index = (initial_index + i ** 2) % self._capacity
+            entry = self._buckets.get_at_index(index)
+
+            # Check if key already exist
+            if entry is None:
+                return False
+            elif not entry.is_tombstone and entry.key == key:
+                return True
+
+
+def remove(self, key: str) -> None:
         """
         TODO: Write this implementation
         """
