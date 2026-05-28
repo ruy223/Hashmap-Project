@@ -206,7 +206,7 @@ class HashMap:
                 return True
 
 
-def remove(self, key: str) -> None:
+    def remove(self, key: str) -> None:
         """
         TODO: Write this implementation
         """
