@@ -120,7 +120,6 @@ class HashMap:
                     break
 
 
-
     def resize_table(self, new_capacity: int) -> None:
         """
         Changes capacity of the table.
@@ -158,9 +157,9 @@ class HashMap:
 
     def empty_buckets(self) -> int:
         """
-        TODO: Write this implementation
+        Returns the number of empty buckets in the hash table
         """
-        pass
+        return self._capacity - self._size
 
     def get(self, key: str) -> object:
         """
