@@ -181,9 +181,19 @@ class HashMap:
 
     def get_keys_and_values(self) -> DynamicArray:
         """
-        TODO: Write this implementation
+        Returns a dynamic array where each index contains a tuple of
+        key/value pairs.
+        Order does not matter.
         """
-        pass
+        # Create empty DA to store results
+        new_array = DynamicArray()
+
+        # Loop through every bucket
+        for i in range(self._capacity):
+            entry = self._buckets.get_at_index(i)
+            if entry is not None and not entry.is_tombstone:
+                new_array.append((entry.key, entry.value))
+        return new_array
 
     def clear(self) -> None:
         """
