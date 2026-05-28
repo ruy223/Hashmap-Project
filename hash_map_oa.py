@@ -159,7 +159,12 @@ class HashMap:
         """
         Returns the number of empty buckets in the hash table
         """
-        return self._capacity - self._size
+        counter = 0
+        for i in range(self._capacity): # Count slots with no entry
+            temp = self._buckets.get_at_index(i)
+            if temp is None:
+                counter += 1
+        return counter
 
     def get(self, key: str) -> object:
         """
