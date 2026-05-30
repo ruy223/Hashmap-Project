@@ -208,9 +208,24 @@ class HashMap:
 
     def remove(self, key: str) -> None:
         """
-        TODO: Write this implementation
+        Removes the given key and its associated value from the hash map.
+        If the key is not present in the hash map, it does nothing.
         """
-        pass
+        # Apply hash function to key, check the hash value
+        initial_index = self._hash_function(key) % self._capacity
+
+        # Loop with quadratic probing
+        for i in range(self._capacity):
+            index = (initial_index + i ** 2) % self._capacity
+            entry = self._buckets.get_at_index(index)
+            # if matched mark slot as deleted
+            if entry is None:
+                return None
+            elif not entry.is_tombstone and entry.key == key:
+                entry.is_tombstone = True
+                self._size -= 1
+                break
+
 
     def get_keys_and_values(self) -> DynamicArray:
         """
