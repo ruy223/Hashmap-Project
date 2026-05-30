@@ -254,13 +254,14 @@ class HashMap:
 
     def __iter__(self):
         """
-        TODO: Write this implementation
+        Enables hash map to iterate across itself.
         """
         pass
 
     def __next__(self):
         """
-        TODO: Write this implementation
+        Returns the next element in the hash table,
+        based on the location of the iterator.
         """
         pass
 
