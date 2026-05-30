@@ -11,7 +11,7 @@
 from operator import index
 
 from a6_include import (DynamicArray, HashEntry,
-                        hash_function_1, hash_function_2)
+                        hash_function_1, hash_function_2, DynamicArrayException)
 
 
 class HashMap:
@@ -256,14 +256,24 @@ class HashMap:
         """
         Enables hash map to iterate across itself.
         """
-        pass
+        self._index = 0
+        return self
 
     def __next__(self):
         """
         Returns the next element in the hash table,
         based on the location of the iterator.
         """
-        pass
+        value = self._buckets.get_at_index(self._index)
+
+        # Skip empty and deleted slots
+        while value is None or value.is_tombstone:
+            self._index += 1
+            if self._index >= self._capacity:
+                raise StopIteration
+            value = self._buckets.get_at_index(self._index)
+        self._index += 1
+        return value
 
 
 # ------------------- BASIC TESTING ---------------------------------------- #
